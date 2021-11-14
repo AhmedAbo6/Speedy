@@ -15,17 +15,27 @@ def start_screen(stdscr):
 def txt_test(stdscr):
 	target_text = 'JacksEpicYoutubeChannelFullofFunTimesAndfunHiRickX'
 	text = []
-	stdscr.clear()
-	stdscr.addstr(target_text)
-	stdscr.refresh()
-	stdscr.getkey()
 
 	while True:
+		stdscr.clear()
+		stdscr.addstr(target_text)
+
+		for i, char in enumerate(text):
+			stdscr.addstr(0, i, char, curses.color_pair(1))
+
+		stdscr.refresh()
+
 		key = stdscr.getkey()
 
 		if ord(key) == 27:
 			break
-		
+		if key in ("KEY_BACKSPACE", '\b', "\x7f"):
+			if len(text) > 0:
+				text.pop()
+		else:
+			text.append(key)
+
+
 
 
 def main(stdscr):
