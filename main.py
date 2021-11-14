@@ -2,6 +2,7 @@ import time
 import curses
 from curses import wrapper
 
+# TODO : Record the best score and store it 
 best = 0 
 
 def start_screen(stdscr):
@@ -14,6 +15,7 @@ def start_screen(stdscr):
 
 
 def txt_test(stdscr):
+	# TODO : Random text
 	target_text = 'JacksEpicYoutubeChannelFullofFunTimesAndfunHiRickX'
 	text = []
 	wpm = 0
@@ -69,7 +71,7 @@ def main(stdscr):
 		txt_test(stdscr)
 
 		stdscr.addstr(2, 0, "Well Done! Press any key to continue....")
-		
+
 		key = stdscr.getkey()
 		if ord(key) == 27:
 			break
